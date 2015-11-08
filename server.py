@@ -12,7 +12,6 @@ def index():
   return render_template('index.html')
 @app.route('/registration', methods=['POST'])
 def validate():
-  print '******************************************************'
   counter = 0
   flash('')
   '''
