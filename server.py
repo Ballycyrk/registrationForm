@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, flash, session
 import re
 EMAIL_REGEX = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
 NAME_REGEX = re.compile(r'^[a-zA-Z]+$')
+PASSWORD_REGEX = re.compile(r'^\w*\d+\w*[A-Z]+\w*$')
 app = Flask(__name__)
 app.secret_key='GoodTimesRoll'
 @app.route('/')
@@ -22,8 +23,10 @@ def validate():
     flash("Confirmation does not match Password, please re-enter.")
     counter += 1
   elif len(request.form['password']) < 9:
-    flash("Password must be at least 9 characters long.")
+    flash("Password must be at least 9 characters long")
     counter += 1
+  elif not PASSWORD_REGEX.match(request.form['password']):
+    flash("Password must contain at least 1 number and one Capital letter.")
   if not NAME_REGEX.match(request.form['first_name']):
     flash('Your first name can only contain letters. (Sorry.)')
     counter += 1
