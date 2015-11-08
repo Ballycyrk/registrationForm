@@ -1,0 +1,32 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  width: 970px;
+  margin: 0px auto;
+  background-color: gray;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  text-align: left;
+}
+
+#form, #flash {
+  display: inline-block;
+  width: 450px;
+  height: 300px;
+  vertical-align: top;
+}
+
+h1 {
+  text-align: center;
+  color: yellow;
+}
